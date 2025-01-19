@@ -1,0 +1,29 @@
+<template>
+  <q-input class="w-200" v-model="message_input" label="메시지 입력" @keyup.enter="send" />
+  <q-btn class="q-mt-md float-right" color="yellow" text-color="black" label="전송" @click="send" />
+</template>
+
+<script setup lang="ts">
+import { ref } from "vue";
+
+import { useChatStore } from "../store/chat";
+import { send_message } from "../service/socketService";
+import Message from "@/entities/Message";
+
+// 반응형 변수
+const message_input = ref("");
+const { insert_message } = useChatStore();
+
+// 메시지 전송 함수
+const send = () => {
+  const message = new Message([message_input.value], true);
+
+  // 메시지 기록
+  insert_message(message);
+  // 메시지 전송
+  send_message(message);
+
+  // 입력폼 초기화
+  message_input.value = "";
+};
+</script>
