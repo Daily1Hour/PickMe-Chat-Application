@@ -2,10 +2,10 @@
   <q-layout view="lhh LpR lff" container>
     <Room />
     <Chat
-      :key="connecting"
+      v-if="!!selected_room?.id"
       :connecting="connecting"
+      :room="selected_room"
       :my_nick="my_nick"
-      :opponent_nick="opponent_nick"
     />
   </q-layout>
 </template>
@@ -15,9 +15,10 @@ import { storeToRefs } from "pinia";
 
 import Room from "@/features/room";
 import Chat from "@/features/chat";
-import { useRoomStore } from "@/features/room/store/room";
+import useRoomStore from "@/features/room/store/useRoomStore";
 
-const { connecting, my_nick, opponent_nick } = storeToRefs(useRoomStore());
+// feature간 데이터 공유
+const { connecting, selected_room, my_nick } = storeToRefs(useRoomStore());
 </script>
 
 <style>

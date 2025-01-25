@@ -4,28 +4,24 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import { storeToRefs } from "pinia";
+import { ref } from "vue";
 
-import { useChatStore } from "../store/chat";
-import { send_message } from "@/entities/chat/service/socketService";
-import Message from "@/entities/chat/model/Message";
+import { Message } from "@/entities/chat/model";
+import { send_message } from "../service/event_helper";
+import useChatStore from "../store/useChatStore";
 
 // 반응형 변수
 const message_input = ref("");
-const { insert_message } = useChatStore();
-const { my_nick, opponent_nick } = storeToRefs(useChatStore());
+const { my_nick, room } = storeToRefs(useChatStore());
 
 // 메시지 전송 함수
 const send = () => {
-  const message = new Message(my_nick.value, [message_input.value], true);
+  // 메시지 생성
+  const message = new Message(my_nick.value, [message_input.value]);
 
-  // 메시지 기록
-  insert_message(message);
   // 메시지 전송
-  if (opponent_nick.value) {
-    send_message(opponent_nick.value, message);
-  }
+  send_message(room.value!.id, message);
 
   // 입력폼 초기화
   message_input.value = "";

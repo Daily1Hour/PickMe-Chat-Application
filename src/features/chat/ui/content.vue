@@ -5,19 +5,22 @@
     :name="!message.is_system ? message.name : ''"
     :label="message.is_system ? message.text[0] : ''"
     :text="!message.is_system ? message.text : []"
-    :sent="message.sent"
-    :bg-color="message.sent ? 'yellow' : 'white'"
+    :sent="message.name === my_nick"
+    :bg-color="message.name === my_nick ? 'yellow' : 'white'"
   />
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { useChatStore } from "../store/chat";
+import { storeToRefs } from "pinia";
 
-const store = useChatStore();
+import useChatStore from "../store/useChatStore";
 
+const { my_nick, messages, query } = storeToRefs(useChatStore());
+
+// 검색 결과 필터링
 const filtered_messages = computed(() => {
-  return store.messages.filter((message) => message.include(store.query));
+  return messages.value.filter((message) => message.include(query.value));
 });
 </script>
 

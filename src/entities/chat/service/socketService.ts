@@ -1,16 +1,8 @@
 import { io, Socket } from "socket.io-client";
 
-import Message from "../model/Message";
-import { ResponseDTO, SendDTO } from "../api/dto";
-import { response_dto_to_message, message_to_send_dto } from "./mapper";
 import { accessToken } from "@/shared/tokens";
-
-// 환경 변수
-const SOCKET_SERVER_URL = import.meta.env.VITE_SOCKET_SERVER_URL;
-const SOCKET_ON_SYSTEM = import.meta.env.VITE_SOCKET_ON_SYSTEM;
-const SOCKET_ON_MESSAGE = import.meta.env.VITE_SOCKET_ON_MESSAGE;
-const SOCKET_EMIT_REGISTER = import.meta.env.VITE_SOCKET_EMIT_REGISTER;
-const SOCKET_EMIT_MESSAGE = import.meta.env.VITE_SOCKET_EMIT_MESSAGE;
+import { SOCKET_EVENT, SOCKET_SERVER_URL } from "@/shared/socket_constants";
+import { mappers_dictionary } from "./mapper/dictionary";
 
 let socket: Socket;
 // 소켓 초기화
@@ -24,7 +16,7 @@ export function connect() {
 
   // 서버에 클라이언트 등록
   const register = (id: string) => {
-    socket.emit(SOCKET_EMIT_REGISTER, { userId: id });
+    socket.emit(SOCKET_EVENT.EMIT_REGISTER, { userId: id });
   };
 
   const success = (callback: () => void) => {
@@ -34,38 +26,20 @@ export function connect() {
   return { register, success };
 }
 
+// 소켓 연결 해제
 export function disconnect() {
   socket?.disconnect();
 }
 
-// 메시지 관리용 콜백 타입 정의
-type MessageHandler = (message: Message) => void;
-
-// 이벤트 리스너 등록
-export const setup_socket_listeners = (
-  on_connect: () => void,
-  on_disconnect: () => void,
-  on_message: MessageHandler,
-  on_system_message: MessageHandler,
-) => {
-  socket.on("connect", on_connect);
-  socket.on("connect_error", on_disconnect);
-  socket.on("disconnect", on_disconnect);
-
-  socket.on(SOCKET_ON_MESSAGE, (response: ResponseDTO) => {
-    const message = response_dto_to_message(response);
-    on_message(message);
+// 동적 이벤트 리스너 등록
+export const subscribe_on = (event: string, callback: (data: any) => void) =>
+  socket.on(event, (data: any) => {
+    const mapper = mappers_dictionary.get(event);
+    callback(mapper?.(data) ?? data);
   });
 
-  socket.on(SOCKET_ON_SYSTEM, (response: ResponseDTO) => {
-    const message = response_dto_to_message(response, true);
-    on_system_message(message);
-  });
-};
-
-// 메시지 전송
-export const send_message = (recipient: string, message: Message) => {
-  const dto: SendDTO = message_to_send_dto(recipient, message);
-
-  socket.emit(SOCKET_EMIT_MESSAGE, dto);
+// 동적 이벤트 이미터 등록
+export const emit_event = (event: string, data: any) => {
+  const mapper = mappers_dictionary.get(event);
+  socket.emit(event, mapper?.(data) ?? data);
 };
