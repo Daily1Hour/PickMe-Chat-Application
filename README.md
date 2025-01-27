@@ -2,6 +2,14 @@
 
 > Single-Spa Application 구성
 
+## 🚩 목차
+
+- [🛠️ 기술 스택](#%EF%B8%8F-기술-스택)
+- [🎥 데모](#-데모)
+- [🧩 컴포넌트 구성](#-컴포넌트-구성)
+- [🚀 실행 방법](#-실행-방법)
+- [📂 폴더 구조](#-폴더-구조)
+
 ## 🛠️ 기술 스택
 
 [![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=flat-square&logo=socketdotio&logoColor=white)](https://socket.io/)  
@@ -14,13 +22,13 @@
 [![Steiger](https://img.shields.io/badge/FSD_Steiger-211b1d.svg?logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiPgo8cGF0aCBkPSJNMCAwIEMyOC4zOCAwIDU2Ljc2IDAgODYgMCBDODYgMy42MyA4NiA3LjI2IDg2IDExIEM1Ny42MiAxMSAyOS4yNCAxMSAwIDExIEMwIDcuMzcgMCAzLjc0IDAgMCBaICIgZmlsbD0iI0VCRUFFQSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTcsMTAyKSIvPgo8cGF0aCBkPSJNMCAwIEMyOC4zOCAwIDU2Ljc2IDAgODYgMCBDODYgMy42MyA4NiA3LjI2IDg2IDExIEM1Ny42MiAxMSAyOS4yNCAxMSAwIDExIEMwIDcuMzcgMCAzLjc0IDAgMCBaICIgZmlsbD0iI0VCRUFFQSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTcsODcpIi8+CjxwYXRoIGQ9Ik0wIDAgQzI4LjM4IDAgNTYuNzYgMCA4NiAwIEM4NiAzLjYzIDg2IDcuMjYgODYgMTEgQzU3LjYyIDExIDI5LjI0IDExIDAgMTEgQzAgNy4zNyAwIDMuNzQgMCAwIFogIiBmaWxsPSIjRUJFQUVBIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1Nyw1NykiLz4KPHBhdGggZD0iTTAgMCBDMjguMzggMCA1Ni43NiAwIDg2IDAgQzg2IDMuNjMgODYgNy4yNiA4NiAxMSBDNTcuNjIgMTEgMjkuMjQgMTEgMCAxMSBDMCA3LjM3IDAgMy43NCAwIDAgWiAiIGZpbGw9IiNFQkVBRUEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU3LDQyKSIvPgo8cGF0aCBkPSJNMCAwIEMxMy41MyAwIDI3LjA2IDAgNDEgMCBDNDEgMy42MyA0MSA3LjI2IDQxIDExIEMyNy40NyAxMSAxMy45NCAxMSAwIDExIEMwIDcuMzcgMCAzLjc0IDAgMCBaICIgZmlsbD0iI0U5RThFOCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTcsMTQ3KSIvPgo8cGF0aCBkPSJNMCAwIEMxMy41MyAwIDI3LjA2IDAgNDEgMCBDNDEgMy42MyA0MSA3LjI2IDQxIDExIEMyNy40NyAxMSAxMy45NCAxMSAwIDExIEMwIDcuMzcgMCAzLjc0IDAgMCBaICIgZmlsbD0iI0U5RThFOCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTcsMTMyKSIvPgo8cGF0aCBkPSJNMCAwIEMxMy41MyAwIDI3LjA2IDAgNDEgMCBDNDEgMy42MyA0MSA3LjI2IDQxIDExIEMyNy40NyAxMSAxMy45NCAxMSAwIDExIEMwIDcuMzcgMCAzLjc0IDAgMCBaICIgZmlsbD0iI0U5RThFOCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTcsMTE3KSIvPgo8cGF0aCBkPSJNMCAwIEMxMy41MyAwIDI3LjA2IDAgNDEgMCBDNDEgMy42MyA0MSA3LjI2IDQxIDExIEMyNy40NyAxMSAxMy45NCAxMSAwIDExIEMwIDcuMzcgMCAzLjc0IDAgMCBaICIgZmlsbD0iI0U5RThFOCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTcsNzIpIi8+Cjwvc3ZnPgo=&style=flat-square&logoColor=black)](https://github.com/feature-sliced/steiger)
 [![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white)](https://eslint.org/)
 
-## 🎨 스크린샷
+## 🎥 데모
 
-<img src="https://github.com/user-attachments/assets/ed4a2a60-4d85-423f-a5ca-3c4661d9bf1c" title="screenshot" width=250px />
+https://github.com/user-attachments/assets/cd1cf3a0-3305-44e6-be9d-ad082f94eebb
 
 ## 🧩 컴포넌트 구성
 
-![chat-component](https://github.com/user-attachments/assets/4991f24c-e25a-48ad-ab44-3d160d7b4a6c)
+![component](https://github.com/user-attachments/assets/9336229c-d6a1-44af-ab6f-22b299c7c192)
 
 ## 🚀 실행 방법
 
@@ -54,29 +62,63 @@ PickMe-Chat-Application
 │  │  ├─ application.ts # single-spa 애플리케이션 진입점
 │  │  └─ main.ts # 프로바이더 스택
 │  ├─ entities # 비즈니스 엔터티 레이어
-│  │  └─ Message.ts
+│  │  └─ chat
+│  │     ├─ api
+│  │     │  └─ dto.ts
+│  │     ├─ model # 엔터티 모델
+│  │     │  ├─ index.ts
+│  │     │  ├─ Message.ts
+│  │     │  ├─ Room.ts
+│  │     │  └─ User.ts
+│  │     └─ service
+│  │        ├─ mapper # 페이로드 ↔ 엔터티 헬퍼 메서드
+│  │        │  ├─ dictionary.ts # 매핑헬퍼서비스 사전
+│  │        │  ├─ message.ts # 메시지 관련 헬퍼함수
+│  │        │  └─ room.ts # 방 관련 헬퍼함수
+│  │        └─ socketService.ts
 │  ├─ features # 기능 구현체 레이어
+│  │  ├─ chat
+│  │  │  ├─ index.vue
+│  │  │  ├─ api
+│  │  │  │  └─ dto.ts # 데이터전송객체
+│  │  │  ├─ service
+│  │  │  │  └─ event_helper.ts # 소켓 이벤트 ↔ 로직 이벤트
+│  │  │  ├─ store # 중앙상태저장소
+│  │  │  │  └─ useChatStore.ts
+│  │  │  └─ ui
+│  │  │     ├─ index.ts
+│  │  │     ├─ layout.vue # 레이어 레이아웃
+│  │  │     ├─ connect.vue # 소켓 연결
+│  │  │     ├─ title.vue # 채팅 제목
+│  │  │     ├─ chat-content.vue # 채팅 컨텐츠
+│  │  │     ├─ search.vue # 채팅 메시지 검색
+│  │  │     ├─ submit.vue # 채팅 메시지 제출
+│  │  │     ├─ actions.vue # 액션 동작 모음
+│  │  │     ├─ invite.vue # 추가 사용자 초대
+│  │  │     ├─ participants.vue # 참여자 확인
+│  │  │     └─ save.vue # 채팅 파일로 저장
+│  │  ├─ room
+│  │  │  ├─ index.ts
+│  │  │  ├─ index.vue
+│  │  │  ├─ service
+│  │  │  │  └─ event_helper.ts
+│  │  │  ├─ store
+│  │  │  │  └─ useRoomStore.ts
+│  │  │  └─ ui
+│  │  │     ├─ index.ts
+│  │  │     ├─ layout.vue # 레이아웃
+│  │  │     ├─ register.vue # 서버 접속
+│  │  │     ├─ make-room.vue # 방 만들기
+│  │  │     ├─ leave-room.vue # 방 나가기
+│  │  │     └─ room-list.vue # 방 목록
+│  ├─ pages # 페이지 레이어
 │  │  └─ chat
 │  │     ├─ index.vue
-│  │     ├─ api
-│  │     │  └─ dto.ts # 데이터전송객체
-│  │     ├─ service
-│  │     │  ├─ mapper.ts # dto ↔ 엔터티 헬퍼 메서드
-│  │     │  └─ socketService.ts # Socket.IO 서비스
-│  │     ├─ store # 중앙상태저장소
-│  │     │  └─ chat.ts
 │  │     └─ ui
-│  │        ├─ index.ts
-│  │        ├─ connect.vue # 소켓 연결
-│  │        ├─ title.vue # 채팅 제목
-│  │        ├─ chat-content.vue # 채팅 컨텐츠
-│  │        ├─ search.vue # 채팅 메시지 검색
-│  │        ├─ submit.vue # 채팅 메시지 제출
-│  │        └─ save.vue # 채팅 파일로 저장
-│  ├─ pages # 페이지 레이어
-│  │  └─ index.vue
+│  │        └─ layout.vue
 │  └─ shared # 공유 레이어
-│     └─ tokens.ts
+│     ├─ socket_constants.ts # 환경변수 불러오기
+│     └─ tokens.ts # 토큰 3종
 ├─ .prettierrc # 포맷터
 ├─ steiger.config.ts # FSD 린트
 ├─ vite-env.d.ts # 환경변수 타입 정의

@@ -1,54 +1,34 @@
 <template>
-  <div class="q-pa-md row justify-center">
-    <q-card dark bordered class="shadow bg-grey-9">
-      <q-card-section class="row items-center">
-        <slot name="header" />
-        <q-btn
-          class="absolute-right q-ma-md q-pa-xs"
-          title="더보기"
-          flat
-          icon="more_vert"
-          @click="open_actions = !open_actions"
-        />
-      </q-card-section>
+  <q-header class="row q-pa-md items-center bg-grey-9">
+    <slot name="header" />
+    <q-btn
+      class="absolute-right q-ma-md q-pa-xs"
+      title="더보기"
+      flat
+      icon="more_vert"
+      @click="toggle_toolbar = !toggle_toolbar"
+    />
+  </q-header>
 
-      <connect>
-        <q-card-section horizontal>
-          <q-card-section class="fit">
-            <q-scroll-area>
-              <slot name="content" />
-            </q-scroll-area>
-          </q-card-section>
+  <q-drawer side="right" v-model="toggle_toolbar" class="bg-grey-9" :width="75" :breakpoint="500">
+    <slot name="toolbar" />
+  </q-drawer>
 
-          <q-card-actions v-show="open_actions" class="q-pl-none" vertical>
-            <slot name="side" />
-          </q-card-actions>
-        </q-card-section>
-      </connect>
+  <q-page-container class="full-height bg-grey-9">
+    <q-page class="q-pa-md">
+      <slot name="content" />
+    </q-page>
+  </q-page-container>
 
-      <q-card-section class="row items-end justify-end no-margin q-gutter-x-md bg-white">
-        <slot name="footer" />
-      </q-card-section>
-    </q-card>
-  </div>
+  <q-footer>
+    <div class="row items-end justify-end no-margin q-pa-md q-gutter-x-md bg-white">
+      <slot name="footer" />
+    </div>
+  </q-footer>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 
-import Connect from "./connect.vue";
-
-const open_actions = ref(false);
+const toggle_toolbar = ref(false);
 </script>
-
-<style scoped>
-.shadow {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-.q-card__section {
-  max-width: 300px;
-}
-.q-scrollarea {
-  height: 500px;
-}
-</style>

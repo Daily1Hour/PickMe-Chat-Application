@@ -1,33 +1,41 @@
 <template>
   <layout>
-    <template #header><search /><Title /></template>
-    <template #content><content /></template>
-    <template #side><actions /></template>
-    <template #footer><submit /></template>
+    <template #header> <search /> <Title /> </template>
+
+    <template #toolbar> <actions /> </template>
+
+    <template #content>
+      <connect>
+        <content />
+      </connect>
+    </template>
+
+    <template #footer> <submit /> </template>
   </layout>
 </template>
 
 <script setup lang="ts">
 import { watch } from "vue";
 
-import { Room } from "@/entities/chat/model";
+import { Room, User } from "@/entities/chat/model";
 import useChatStore from "./store/useChatStore";
-import { Actions, Content, Layout, Search, Submit, Title } from "./ui";
+import { Layout, Search, Title, Actions, Connect, Content, Submit } from "./ui";
 
-const store = useChatStore();
-const { connecting, room, my_nick } = defineProps({
+const { connecting, room, current_user } = defineProps({
   connecting: Boolean,
   room: Room,
-  my_nick: String,
+  current_user: User,
 });
+
+const store = useChatStore();
 
 // store에 props를 업데이트
 watch(
-  () => ({ connecting, room, my_nick }),
+  () => ({ connecting, room, current_user }),
   (props) => {
     store.connecting = props.connecting;
     store.room = props.room;
-    store.my_nick = props.my_nick!;
+    store.current_user = props.current_user!;
   },
   { immediate: true, deep: true },
 );

@@ -1,13 +1,14 @@
 <template>
-  <drawer-layout>
-    <register />
-
-    <make-room />
-
-    <room-list />
-  </drawer-layout>
+  <layout>
+    <template #side-header>
+      <make-room />
+    </template>
+    <template #side>
+      <room-list />
+    </template>
+  </layout>
 </template>
 
 <script setup lang="ts">
-import { DrawerLayout, MakeRoom, Register, RoomList } from "./ui";
+import { Layout, MakeRoom, RoomList } from "./ui";
 </script>
